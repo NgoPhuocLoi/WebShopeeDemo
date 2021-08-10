@@ -1,0 +1,141 @@
+/* PC */
+
+@media (min-width:1024px){
+    .hide-on-pc{
+        display: none;
+    }
+}
+
+/* Mobile and Tablet */
+@media (max-width:1023px){
+    .hide-on-mobile-tablet{
+        display: none;
+    }
+
+
+    .header{
+        position: fixed;
+        top: 0;left: 0;right: 0;
+        z-index: 10;
+    }
+
+}
+
+/*Tablet */
+@media (min-width:740px) and (max-width:1023px){
+    .hide-on-tablet{
+        display: none;
+    }
+
+    :root{
+        --header-height:70px;
+        --header-nav-height:0px;
+    }
+
+    .header__search-options{
+        top: 33px;
+    }
+
+    .header__shopping-cart{
+        width: 90px;
+        text-align: right;
+    }
+
+    
+
+    .content{
+        margin-top: 114px;
+        padding-top: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width:739px){
+    .hide-on-mobile{
+        display: none;
+    }
+
+    :root{
+        --header-height:60px;
+        --header-nav-height:0px;
+    }
+
+    .content{
+        margin-top: 0px;
+        padding: 20px 5px 0;
+    }
+
+    .header-with-search{
+        justify-content: space-between;
+    }
+
+    .header__logo{
+        width: 120px;
+    }
+
+    .header__logo-link{
+        display: flex;
+    }
+
+    .header__logo-img{
+        width: 120px;
+        margin: 0;
+    }
+
+    .header__shopping-cart{
+        width: unset;
+        margin-right: 12px;
+    }
+
+    .header__shopping-cart-icon{
+        font-size: 20px;
+    }
+
+    .header__shopping-list{
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+    }
+
+    .header__shopping-list-items{
+        max-height: 40vh;
+    }
+
+    .header__shopping-list::before{
+        display: none;
+    }
+
+    .header__search-btn{
+        padding: 4px 12px;
+    }
+
+    .header__search-select{
+        padding-left: 4px;
+        display: flex;
+        align-items: center;
+        height: 44px;
+    }
+
+    .header__search-options{
+        top: 100%;
+    }
+
+    .header__search-select-icon{
+        padding-left: 4px;
+    }
+
+    .header__search-history{
+        top: 100%;
+        border-radius: 0 0 3px 3px;
+    }
+
+    .pagination-item {
+        font-size: 16px;
+    }
+
+    .pagination-item__link{
+        margin: 0 2px;
+    }
+    
+}
