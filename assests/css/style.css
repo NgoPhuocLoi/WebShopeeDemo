@@ -152,7 +152,7 @@
     width: 1px;
     background-color: #fb9086;
     position: absolute;
-    right: -9px;top: 50%;
+    right: -9px;top: 70%;
     transform: translateY(-50%);
 }
 
@@ -298,12 +298,42 @@
 
 /* authentic modal */
 
+.open.modal{
+    display: flex;
+}
+
+.hide.modal-sign-up,
+.hide.modal-sign-in{
+    display: none;
+}
+
 .modal__body{
     width: 550px;
+    /* display: none; */
 }
 .auth-form__container{
     padding: 24px 32px;
+    position: relative;
 }
+
+@keyframes showModal{
+    from{
+
+    }
+}
+
+.auth-form__close-btn{
+    position: absolute;
+    top: 5px;right: 10px;
+    font-size: 18px;
+    color: #9d9d9d;
+    cursor: pointer;
+}
+
+.auth-form__close-btn:hover{
+    opacity: .8;
+}
+
 
 .auth-form__header{
     display: flex;
@@ -821,9 +851,6 @@ i.header__search-option-icon{
 
 /* cart has product */
 
-.header__shopping-list-container{
-    /* display: none; */
-}
 
 .header__shopping-list-heading{
     text-align: left;

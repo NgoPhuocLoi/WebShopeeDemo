@@ -95,12 +95,12 @@
     
                                 <!-- Users are not log in -->
     
-                            <!-- <li class="header__navbar-item"><a href="#" class="header__nav-item-link header__navbar-item--separate">Đăng kí</a></li>
-                            <li class="header__navbar-item"><a href="#" class="header__nav-item-link">Đăng nhập</a></li> -->
+                            <li class="header__navbar-item js-abc"><a href="#" class="header__nav-item-link header__navbar-item--separate js-signUpBtn">Đăng kí</a></li>
+                            <li class="header__navbar-item"><a href="#" class="header__nav-item-link js-signInBtn">Đăng nhập</a></li>
     
                                 <!-- Users logged in -->
     
-                            <li class="header__navbar-item header__navbar-user header__navbar-item--no-opacity">
+                            <!-- <li class="header__navbar-item header__navbar-user header__navbar-item--no-opacity">
                                 <a href="#" class="header__navbar-user-link">
                                     <img src="https://cf.shopee.vn/file/66930abe808483892404d117707a4d25_tn" alt="" class="header__navbar-user-img">                           
                                     <span class="header__navbar-user-name">Ngô Phước Lợi</span>
@@ -111,7 +111,7 @@
                                     <li class="header__navbar-user-menu-item"><a href="#">Đơn mua</a></li>
                                     <li class="header__navbar-user-menu-item"><a href="">Đăng xuất</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                     
@@ -1090,17 +1090,18 @@
     </div>
 
     <!-- modal -->
-    <!-- <div class="modal">
-        <div class="modal__overlay"></div>
+    <div class="modal js-modal hide-on-mobile-tablet">
+        <div class="modal__overlay js-modalOverlay"></div>
         <div class="modal__body">
             <div class="modal__container">
-                Authentic form (xac thuc)
-                    sign-up form
-                <div class="auth-form">
+                <!-- Authentic form (xac thuc)
+                    sign-up form -->
+                <div class="auth-form js-modalSignUp modal-sign-up">
                     <div class="auth-form__container">
+                        <i class="auth-form__close-btn fas fa-times js-closeModalBtn"></i>
                         <div class="auth-form__header">
                             <h3 class="auth-form__header-title">Đăng kí</h3>
-                            <h4 class="auth-form__header-switch-btn">Đăng nhập</h4>
+                            <h4 class="auth-form__header-switch-btn js-switchSignInBtn">Đăng nhập</h4>
                         </div>
                         <div class="auth-form__forms">
                             <div class="auth-form__group">
@@ -1138,12 +1139,14 @@
                         </a>
                     </div>
                 </div>
-                    sign-in form
-                <div class="auth-form">
+                    <!-- sign-in form -->
+                <div class="auth-form js-modalSignIn modal-sign-in">
                     <div class="auth-form__container">
+                        <i class="auth-form__close-btn fas fa-times js-closeModalBtn"></i>
+
                         <div class="auth-form__header">
                             <h3 class="auth-form__header-title">Đăng nhập</h3>
-                            <h4 class="auth-form__header-switch-btn">Đăng ký</h4>
+                            <h4 class="auth-form__header-switch-btn js-switchSignUpBtn">Đăng ký</h4>
                         </div>
                         <div class="auth-form__forms">
                             <div class="auth-form__group">
@@ -1179,7 +1182,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
 
         <!-- like action -->
@@ -1225,6 +1228,60 @@
     
     
 
+</script>
+
+    <!-- show modal -->
+<script>
+    const signUpBtns = document.querySelectorAll('.js-signUpBtn');   
+    const signInBtns = document.querySelectorAll('.js-signInBtn');   
+    const switchSignInBtn = document.querySelector('.js-switchSignInBtn');   
+    const switchSignUpBtn = document.querySelector('.js-switchSignUpBtn');   
+    const modal = document.querySelector('.js-modal');
+    const modalSignUp = document.querySelector('.js-modalSignUp');
+    const modalSignIn = document.querySelector('.js-modalSignIn');
+    const closeModalBtns = document.querySelectorAll('.js-closeModalBtn');
+    const modalOverlay = document.querySelector('.js-modalOverlay')
+
+    function showModalSignUp(){
+        modal.classList.add('open');
+        modalSignIn.classList.add('hide');
+    }
+
+    function showModalSignIn(){
+        modal.classList.add('open');
+        modalSignUp.classList.add('hide');
+    }
+
+    function hideModal(){
+        modal.classList.remove('open');
+        modalSignUp.classList.remove('hide');
+        modalSignIn.classList.remove('hide');
+    }
+
+    function switchSignUpToSignIn (){
+        modalSignUp.classList.add('hide');
+        modalSignIn.classList.remove('hide');
+    }
+
+    function switchSignInToSignUp (){
+        modalSignUp.classList.remove('hide');
+        modalSignIn.classList.add('hide');
+    }
+
+    for( const signUpBtn of signUpBtns){
+        signUpBtn.addEventListener('click', showModalSignUp);   
+    }
+    for( const signInBtn of signInBtns){
+        signInBtn.addEventListener('click', showModalSignIn);   
+    }
+    for( const closeModalBtn of closeModalBtns){
+        closeModalBtn.addEventListener('click', hideModal);   
+    }
+
+    modalOverlay.addEventListener('click', hideModal);
+    switchSignInBtn.addEventListener('click', switchSignUpToSignIn);
+    switchSignUpBtn.addEventListener('click', switchSignInToSignUp);
+    
 </script>
 </body>
 </html>
